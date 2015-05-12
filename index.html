@@ -36,6 +36,23 @@
 	<!-- e.g. ng-class="$variableToEvaluate ? 'class-if-true' : 'class-if-false'"> -->
 	<p ng-class="tired && sore ? 'green' : 'pink'">Green if tired AND sore, else pink...</p>
 	
+	<!------------------------------------------------------------------------->
+	<!-- $first, $last, $even, and $odd ngClass with ngRepeat -->
+	<!-- add a class to the first item -->
+	<ul>
+		<li ng-class="{ 'text-success': $first }" ng-repeat="item in items">{{ item.name }}</li>
+	</ul>
+	
+	<!-- add class to last item -->
+	<ul>
+		<li ng-class="{ 'text-danger': $last }" ng-repeat="item in items">{{ item.name }}</li>
+	</ul>
+	
+	<!-- add class to even items and a different class to odd items -->
+	<ul>
+		<li ng-class="{ 'text-info': $even, 'text-danger': $odd }" ng-repeat="item in items">{{ item.name }}</li>
+	</ul>
+	
 	
 </body>
 </html>
