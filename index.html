@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+	
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.js"></script>
+	<script src="app.js"></script>
+</head>
+<body ng-app="ngClassExample" ng-controller="mainController">
+	
+	<!-- text typed into this input will be used as a class in the div below -->
+	<input type="text" ng-model="textType">
+	
+	<!-- ng-class will be whatever is typed as input above -->
+	<div ng-class="textType">{{textType}}</div>
+	
+	<!------------------------------------------------------------------------->
+	<!-- this time, each input box will add a class to the ng-class array -->
+	<input type="text" ng-model="styleOne">
+	<input type="text" ng-model="styleTwo">
+	
+	<!-- div will take on both classes above -->
+	<div ng-class="[styleOne, styleTwo]">{{styleOne}}{{styleTwo}}</div>
+	
+	<!------------------------------------------------------------------------->
+	<!-- input box will toggle a variable to true or false -->
+	<input type="checkbox" ng-model="tired">Are you tired?
+	<input type="checkbox" ng-model="sore">Are you sore?
+	
+	<!-- add the class 'text-success' if the variable 'sore' is true -->
+	<div ng-class="{ 'red': sore, 'blue': tired }">tired = BLUE, sore = RED</div>
+	
+	<!------------------------------------------------------------------------->
+	<!-- ternary operator to evaluate two different classes and pick one based on true/false -->
+	<!-- e.g. ng-class="$variableToEvaluate ? 'class-if-true' : 'class-if-false'"> -->
+	<p ng-class="tired && sore ? 'green' : 'pink'">Green if tired AND sore, else pink...</p>
+	
+	
+</body>
+</html>
